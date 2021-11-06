@@ -1,0 +1,12 @@
+ [req]
+ distinguished_name = req_distinguished_name
+ prompt = no
+
+ [ req_distinguished_name ]
+ countryName            = [country code]
+ stateOrProvinceName    = [state or province]
+ localityName           = [city]
+ organizationName       = [org name]
+ OU                     = [org unit]
+ commonName             = [domain]
+ emailAddress           = [email]

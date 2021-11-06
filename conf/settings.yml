@@ -1,0 +1,45 @@
+# | SETTINGS
+# NOTE: You should not be editing SETTINGS.tpl.yml directly.
+# Instead, make a copy called of SETTINGS.tpl.yml called
+# settings.yml and use that file to alter the Vagrantfile and the provision.sh
+# script. Refer to the readme.md for more details.
+
+# | SERVER
+# Configure the server parameters.
+server:
+  name: d9-local
+  box: roboxes/oracle8 
+  ram: 2048
+  cpus: 2
+  ports:
+    - guest: 80
+      host: 8080
+      auto_correct: true
+      usable_port_range: 8080..8999
+
+# | SYNCED FOLDERS
+# Configure how folders will be synced from host->guest.
+synced_folders:
+  - src: public_html
+    dest: /opt/www/html
+  - src: conf/httpd/conf
+    dest: /etc/httpd/conf
+    options:
+      :owner: root
+      :group: root
+  - src: conf/httpd/conf.d
+    dest: /home/vagrant/apache
+  - src: conf/mysql
+    dest: /home/vagrant/conf/mysql
+  - src: conf/scripts
+    dest: /home/vagrant/scripts
+  - src: conf/openssl
+    dest: /home/vagrant/openssl
+  - src: conf/php
+    dest: /home/vagrant/php
+  - src: conf/drupal
+    dest: /home/vagrant/drupal
+  - src: conf/ssh
+    dest: /home/vagrant/ssh-sync
+  - src: conf/backups
+    dest: /home/vagrant/backups
